@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>BleLogs</title>
+  <meta name="description" content="Events Log">
+  <meta name="author" content="Cesar Gabriel MA">
+
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}?v=1.0">
+  <link rel="stylesheet" href="{% static 'bootstrap-grid.min.css' %}?v=1.0">
+  <link rel="stylesheet" href="{% static 'bootstrap-reboot.min.css' %}?v=1.0">
+
+</head>
+
+<body>
+<h1>Log Events</h1>
+
+  {% if log_events %}
+    
+       <table>
+         <tr>
+           <th>Time</th>
+           <th>Event</th>
+         </tr>
+         {% for le in log_events %}
+           <tr>
+             <td>{{le.timestamp}}</td>
+             <td>{{le.event}}</td>
+           </tr>
+         {% endfor %}
+       </table>
+     
+  {% else %}
+      <p>no data</p>
+  {% endif %}
+
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js '%}"></script>
+</body>
+</html>
